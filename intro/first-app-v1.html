@@ -3,6 +3,7 @@
 
 <div id="app">
     <p>{{ title }}</p>
+    <input @input="changeTitle" type="text">
 </div>
 
 <script>
@@ -10,6 +11,11 @@
         el: ' #app',
         data: {
             title: 'Hello world!'
+        },
+        methods: {
+            changeTitle(event) {
+                this.title = event.target.value;
+            }
         }
     })
 </script>
