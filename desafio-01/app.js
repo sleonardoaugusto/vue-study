@@ -6,6 +6,11 @@ new Vue({
             age: 23
         }
     },
+    methods: {
+      randint() {
+          return Math.random()
+      }
+    },
     computed: {
         multiplyByThree() {
             return this.person.age * 3
