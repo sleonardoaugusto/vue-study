@@ -6,4 +6,9 @@ new Vue({
             age: 23
         }
     },
+    computed: {
+        multiplyByThree() {
+            return this.person.age * 3
+        }
+    }
 })
