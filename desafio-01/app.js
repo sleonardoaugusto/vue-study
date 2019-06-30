@@ -7,9 +7,12 @@ new Vue({
         }
     },
     methods: {
-      randint() {
-          return Math.random()
-      }
+        randint() {
+            return Math.random()
+        },
+        getImage() {
+            return 'https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg'
+        }
     },
     computed: {
         multiplyByThree() {
