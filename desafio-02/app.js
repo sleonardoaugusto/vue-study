@@ -6,6 +6,9 @@ new Vue({
     methods: {
         showAlert() {
             alert('Thats my alert!!')
+        },
+        keyHandle(event) {
+            this.valor = event.target.value
         }
     }
 })

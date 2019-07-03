@@ -9,7 +9,7 @@
     <!-- 2) Escute o evento "keydown" e armazene o valor na propriedade
         data (dica: event.target.value) -->
     <div>
-        <input type="text">
+        <input type="text" @keydown="keyHandle">
         <p>{{ valor }}</p>
     </div>
 
