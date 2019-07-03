@@ -9,6 +9,9 @@ new Vue({
         },
         keyHandle(event) {
             this.valor = event.target.value
+        },
+        enterKeyHandle(event) {
+            this.valor = event.target.value
         }
     }
 })
