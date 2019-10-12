@@ -1,6 +1,9 @@
 new Vue({
   el: '#desafio',
   data: {
+    game: {
+      started: false
+    },
     hero: {
       name: 'Jiraya',
       life: 100,
@@ -17,6 +20,9 @@ new Vue({
   methods: {
     getBgColor(life) {
       return life > 20 ? 'green' : 'red'
+    },
+    startGame() {
+      this.game.started = true
     },
     heroAttack() {
       this.attack('hero', 'monster')
