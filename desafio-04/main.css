@@ -34,11 +34,12 @@
 }
 
 .life {
+    background-color: green;
     height: 100%;
 }
 
-.life-qty {
-    font-size: 21px;
+.danger {
+    background-color: red;
 }
 
 .actions {

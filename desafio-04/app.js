@@ -18,9 +18,6 @@ new Vue({
     }
   },
   methods: {
-    getBgColor(life) {
-      return life > 20 ? 'green' : 'red'
-    },
     startGame() {
       this.game.started = true
     },
@@ -39,6 +36,11 @@ new Vue({
     },
     attackValue(max, min) {
       return Math.trunc(Math.random() * (max - min) + 1)
+    }
+  },
+  computed: {
+    hasResult() {
+      return this.monster.life == 0 || this.hero.life == 0
     }
   }
 })

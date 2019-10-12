@@ -12,20 +12,27 @@
       <h1>{{ hero.name }}</h1>
       <div class="lifebar">
         <div class="life"
-             :style="{width: `${hero.life}%`, backgroundColor: getBgColor(hero.life)}">
+             :class="{danger: hero.life < 20}"
+             :style="{width: hero.life + '%'}">
         </div>
       </div>
-      <span class="life-qty">{{ hero.life }}%</span>
+      <span>{{ hero.life }}%</span>
     </div>
     <div class="score">
       <h1>{{ monster.name }}</h1>
       <div class="lifebar">
         <div class="life"
-             :style="{width: `${monster.life}%`, backgroundColor: getBgColor(monster.life)}">
+             :class="{danger: monster.life < 20}"
+             :style="{width: monster.life + '%'}">
         </div>
       </div>
-      <span class="life-qty">{{ monster.life }}%</span>
+      <span>{{ monster.life }}%</span>
     </div>
+  </div>
+
+  <div v-show="hasResult" class="panel">
+    <span v-show="monster.life == 0">Você ganhou!</span>
+    <span v-show="hero.life == 0">Você perdeu!</span>
   </div>
 
   <div class="panel actions">
