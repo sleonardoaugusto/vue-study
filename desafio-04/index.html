@@ -1,0 +1,55 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="desafio">
+
+  <div class="panel">
+    <div class="players-section">
+      <h1>Hero</h1>
+      <div class="lifebar">
+        <div class="life-percent"
+             :style="{width: `${hero.life}%`, backgroundColor: getBgColor(hero.life)}"></div>
+      </div>
+    </div>
+    <div class="players-section">
+      <h1>Monster</h1>
+      <div class="lifebar">
+        <div class="life-percent"
+             :style="{width: `${monster.life}%`, backgroundColor: getBgColor(monster.life)}"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+<style lang="scss">
+  .panel {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #D4D4D4;
+    box-shadow: 0px 0px 7px 0px #D4D4D4;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .players-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    padding: 15px;
+  }
+
+  .lifebar {
+    height: 20px;
+    width: 100%;
+    border: 1px solid #000000;
+  }
+
+  .life-percent {
+    height: 100%;
+  }
+</style>
