@@ -7,14 +7,14 @@
 
   <div class="panel">
     <div class="players-section">
-      <h1>Herói</h1>
+      <h1>{{ hero.name }}</h1>
       <div class="lifebar">
         <div class="life-percent"
              :style="{width: `${hero.life}%`, backgroundColor: getBgColor(hero.life)}"></div>
       </div>
     </div>
     <div class="players-section">
-      <h1>Monstro</h1>
+      <h1>{{ monster.name }}</h1>
       <div class="lifebar">
         <div class="life-percent"
              :style="{width: `${monster.life}%`, backgroundColor: getBgColor(monster.life)}"></div>

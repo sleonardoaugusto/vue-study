@@ -2,9 +2,11 @@ new Vue({
   el: '#desafio',
   data: {
     monster: {
+      name: 'Demogorgon',
       life: 20
     },
     hero: {
+      name: 'Jiraya',
       life: 50
     }
   },
