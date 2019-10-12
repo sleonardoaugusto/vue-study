@@ -10,15 +10,19 @@
       <h1>{{ hero.name }}</h1>
       <div class="lifebar">
         <div class="life-percent"
-             :style="{width: `${hero.life}%`, backgroundColor: getBgColor(hero.life)}"></div>
+             :style="{width: `${hero.life}%`, backgroundColor: getBgColor(hero.life)}">
+        </div>
       </div>
+      <span class="life-qty">{{ hero.life }}%</span>
     </div>
     <div class="players-section">
       <h1>{{ monster.name }}</h1>
       <div class="lifebar">
         <div class="life-percent"
-             :style="{width: `${monster.life}%`, backgroundColor: getBgColor(monster.life)}"></div>
+             :style="{width: `${monster.life}%`, backgroundColor: getBgColor(monster.life)}">
+        </div>
       </div>
+      <span class="life-qty">{{ monster.life }}%</span>
     </div>
   </div>
 
@@ -72,6 +76,10 @@
 
   .life-percent {
     height: 100%;
+  }
+
+  .life-qty {
+    font-size: 21px;
   }
 
   .btn {
