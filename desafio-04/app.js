@@ -26,9 +26,10 @@ new Vue({
       this.attack('monster', 'hero')
     },
     attack(givenBy, takenBy) {
+      const { life } = this[takenBy]
       const { maxAttack, minAttack } = this[givenBy]
       const attackValue = this.attackValue(maxAttack, minAttack)
-      this[takenBy].life -= this[takenBy].life >= attackValue ? attackValue : this[takenBy].life
+      this[takenBy].life -= life >= attackValue ? attackValue : life
     },
     attackValue(max, min) {
       return Math.trunc(Math.random() * (max - min) + 1)
