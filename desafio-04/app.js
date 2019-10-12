@@ -1,5 +1,5 @@
 new Vue({
-  el: '#desafio',
+  el: '#app',
   data: {
     game: {
       started: false

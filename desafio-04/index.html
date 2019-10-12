@@ -1,12 +1,13 @@
 <script src="https://unpkg.com/vue"></script>
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="main.css">
 </head>
 
-<div id="desafio">
+<div id="app">
 
-  <div class="panel">
-    <div class="players-section">
+  <div class="panel scores">
+    <div class="score">
       <h1>{{ hero.name }}</h1>
       <div class="lifebar">
         <div class="life-percent"
@@ -15,7 +16,7 @@
       </div>
       <span class="life-qty">{{ hero.life }}%</span>
     </div>
-    <div class="players-section">
+    <div class="score">
       <h1>{{ monster.name }}</h1>
       <div class="lifebar">
         <div class="life-percent"
@@ -26,13 +27,13 @@
     </div>
   </div>
 
-  <div class="panel">
+  <div class="panel actions">
     <div v-if="!game.started" class="start-game">
       <button class="btn btn-start" @click="startGame">iniciar jogo</button>
     </div>
     <div v-if="game.started" class="actions-section">
       <button class="btn btn-attack" @click="heroAttack">ataque</button>
-      <button class="btn btn-special-atack">ataque especial</button>
+      <button class="btn btn-special-atack" @click="superAttack">ataque especial</button>
       <button class="btn btn-heal">curar</button>
       <button class="btn btn-surrender">desistir</button>
     </div>
@@ -42,75 +43,3 @@
 
 
 <script src="app.js"></script>
-
-<style lang="scss">
-  .panel {
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid #D4D4D4;
-    box-shadow: 0px 0px 7px 0px #D4D4D4;
-    width: 100%;
-    padding: 15px;
-    margin: 30px;
-  }
-
-  .start-game {
-    display: flex;
-    justify-content: center;
-  }
-
-  .players-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 40%;
-    padding: 15px;
-  }
-
-  .lifebar {
-    height: 20px;
-    width: 100%;
-    border: 1px solid #000000;
-  }
-
-  .life-percent {
-    height: 100%;
-  }
-
-  .life-qty {
-    font-size: 21px;
-  }
-
-  .btn {
-    margin: 0 7px;
-    padding: 5px 30px;
-    border-radius: 5px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 16px;
-  }
-
-  .btn-start {
-    background-color: #6C92F5;
-  }
-
-  .btn-attack {
-    background-color: #f54545;
-    color: #FFF;
-  }
-
-  .btn-special-atack {
-    background-color: #f58845;
-  }
-
-  .btn-heal {
-    background-color: #5ccf46;
-    color: #FFF;
-  }
-
-  .btn-surrender {
-    background-color: #d9d9d9;
-  }
-</style>
