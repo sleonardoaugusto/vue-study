@@ -4,13 +4,14 @@
   <link rel="stylesheet" href="main.css">
 </head>
 
+<body>
 <div id="app">
 
   <div class="panel scores">
     <div class="score">
       <h1>{{ hero.name }}</h1>
       <div class="lifebar">
-        <div class="life-percent"
+        <div class="life"
              :style="{width: `${hero.life}%`, backgroundColor: getBgColor(hero.life)}">
         </div>
       </div>
@@ -19,7 +20,7 @@
     <div class="score">
       <h1>{{ monster.name }}</h1>
       <div class="lifebar">
-        <div class="life-percent"
+        <div class="life"
              :style="{width: `${monster.life}%`, backgroundColor: getBgColor(monster.life)}">
         </div>
       </div>
@@ -33,7 +34,7 @@
     </div>
     <div v-if="game.started" class="actions-section">
       <button class="btn btn-attack" @click="heroAttack">ataque</button>
-      <button class="btn btn-special-atack" @click="superAttack">ataque especial</button>
+      <button class="btn btn-special-atack">ataque especial</button>
       <button class="btn btn-heal">curar</button>
       <button class="btn btn-surrender">desistir</button>
     </div>
@@ -41,5 +42,5 @@
 
 </div>
 
-
 <script src="app.js"></script>
+</body>
