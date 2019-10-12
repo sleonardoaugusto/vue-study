@@ -1,3 +1,7 @@
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
 #app {
     display: flex;
     flex-direction: column;
