@@ -1,17 +1,17 @@
 new Vue({
   el: '#desafio',
   data: {
-    monster: {
-      name: 'Demogorgon',
-      life: 100,
-      maxAttack: 13,
-      minAttack: 9
-    },
     hero: {
       name: 'Jiraya',
       life: 100,
       maxAttack: 10,
       minAttack: 7
+    },
+    monster: {
+      name: 'Demogorgon',
+      life: 100,
+      maxAttack: 13,
+      minAttack: 9
     }
   },
   methods: {
@@ -19,15 +19,16 @@ new Vue({
       return life > 20 ? 'green' : 'red'
     },
     heroAttack() {
-      const { maxAttack, minAttack } = this.hero
-      const attackValue = this.attackValue(maxAttack, minAttack)
-      this.monster.life -= this.monster.life >= attackValue ? attackValue : this.monster.life
+      this.attack('hero', 'monster')
       this.monsterAttack()
     },
     monsterAttack() {
-      const { maxAttack, minAttack } = this.monster
+      this.attack('monster', 'hero')
+    },
+    attack(givenBy, takenBy) {
+      const { maxAttack, minAttack } = this[givenBy]
       const attackValue = this.attackValue(maxAttack, minAttack)
-      this.hero.life -= this.hero.life >= attackValue ? attackValue : this.hero.life
+      this[takenBy].life -= this[takenBy].life >= attackValue ? attackValue : this[takenBy].life
     },
     attackValue(max, min) {
       return Math.trunc(Math.random() * (max - min) + 1)
