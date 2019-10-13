@@ -8,7 +8,8 @@ new Vue({
       name: 'Jiraya',
       life: 100,
       maxAttack: 10,
-      minAttack: 7
+      minAttack: 7,
+      specialAttack: 3
     },
     monster: {
       name: 'Demogorgon',
@@ -23,22 +24,23 @@ new Vue({
       this.monster.life = 100
       this.game.started = true
     },
-    heroAttack() {
-      this.attack('hero', 'monster')
+    heroAttack(special = false) {
+      this.attack('hero', 'monster', special)
       this.monsterAttack()
     },
     monsterAttack() {
       this.attack('monster', 'hero')
     },
-    attack(givenBy, takenBy) {
+    attack(givenBy, takenBy, special) {
       const { life } = this[takenBy]
       const { maxAttack, minAttack } = this[givenBy]
-      const attackValue = this.attackValue(maxAttack, minAttack)
+      const attackValue = this.attackValue(maxAttack, minAttack, special)
       this[takenBy].life -= life >= attackValue ? attackValue : life
     },
-    attackValue(max, min) {
+    attackValue(max, min, special) {
+      const specialValue = special ? this.hero.specialAttack : 0
       const value = Math.random() * (max - min) + min
-      return Math.round(value)
+      return Math.round(value + specialValue)
     }
   },
   computed: {
