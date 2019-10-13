@@ -38,9 +38,9 @@ new Vue({
       this[takenBy].life -= life >= attackValue ? attackValue : life
     },
     attackValue(max, min, special) {
-      const specialValue = special ? this.hero.specialAttack : 0
+      const specialAttack = special ? this.hero.specialAttack : 0
       const value = Math.random() * (max - min) + min
-      return Math.round(value + specialValue)
+      return Math.round(value + specialAttack)
     }
   },
   computed: {
