@@ -13,10 +13,7 @@ html {
     margin: 30px;
 }
 
-.start-game {
-    display: flex;
-    justify-content: center;
-}
+/* Scores section */
 
 .scores {
     display: flex;
@@ -46,10 +43,19 @@ html {
     background-color: red;
 }
 
+/* Result section */
+
 .result {
     display: flex;
     justify-content: center;
     font-size: 1.3rem;
+}
+
+/* Actions section */
+
+.start-game {
+    display: flex;
+    justify-content: center;
 }
 
 .actions {

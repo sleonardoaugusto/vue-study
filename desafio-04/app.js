@@ -6,7 +6,7 @@ new Vue({
     },
     hero: {
       name: 'Jiraya',
-      life: 0,
+      life: 100,
       maxAttack: 10,
       minAttack: 7
     },
