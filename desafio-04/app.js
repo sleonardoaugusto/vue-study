@@ -37,7 +37,8 @@ new Vue({
       this[takenBy].life -= life >= attackValue ? attackValue : life
     },
     attackValue(max, min) {
-      return Math.trunc(Math.random() * (max - min) + 1)
+      const value = Math.random() * (max - min) + min
+      return Math.round(value)
     }
   },
   computed: {
