@@ -19,6 +19,8 @@ new Vue({
   },
   methods: {
     startGame() {
+      this.hero.life = 100
+      this.monster.life = 100
       this.game.started = true
     },
     heroAttack() {
