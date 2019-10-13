@@ -53,11 +53,6 @@ html {
 
 /* Actions section */
 
-.start-game {
-    display: flex;
-    justify-content: center;
-}
-
 .actions {
     display: flex;
     justify-content: center;
@@ -73,24 +68,24 @@ html {
     font-size: 1rem;
 }
 
-.btn-start {
+.start {
     background-color: #6C92F5;
 }
 
-.btn-attack {
+.attack {
     background-color: #f54545;
     color: #FFF;
 }
 
-.btn-special-atack {
+.special-atack {
     background-color: #f58845;
 }
 
-.btn-heal {
+.heal {
     background-color: #5ccf46;
     color: #FFF;
 }
 
-.btn-surrender {
+.surrender {
     background-color: #d9d9d9;
 }

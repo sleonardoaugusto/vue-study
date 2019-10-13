@@ -40,15 +40,13 @@
   </div>
 
   <div class="panel actions">
-    <div v-if="!game.started" class="start-game">
-      <button class="btn btn-start" @click="startGame">iniciar jogo</button>
-    </div>
-    <div v-if="game.started" class="actions-section">
-      <button class="btn btn-attack" @click="heroAttack">ataque</button>
-      <button class="btn btn-special-atack">ataque especial</button>
-      <button class="btn btn-heal">curar</button>
-      <button class="btn btn-surrender">desistir</button>
-    </div>
+    <template v-if="game.started">
+      <button class="btn attack" @click="heroAttack">ataque</button>
+      <button class="btn special-atack">ataque especial</button>
+      <button class="btn heal">curar</button>
+      <button class="btn surrender">desistir</button>
+    </template>
+    <button v-else="!game.started" class="btn start" @click="startGame">iniciar jogo</button>
   </div>
 
 </div>
