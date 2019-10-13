@@ -9,7 +9,9 @@ new Vue({
       life: 100,
       maxAttack: 10,
       minAttack: 7,
-      specialAttack: 4
+      specialAttack: 4,
+      minHeal: 7,
+      maxHeal: 14
     },
     monster: {
       name: 'Demogorgon',
@@ -28,11 +30,17 @@ new Vue({
       this.hurt('hero', 'monster', special)
       this.hurt('monster', 'hero', false)
     },
+    heal() {
+      const { life, minHeal, maxHeal } = this.hero
+      const heal = this.getRandom(minHeal, maxHeal)
+      this.hero.life = Math.min(life + heal, 100)
+      this.hurt('monster', 'hero', false)
+    },
     hurt(givenBy, takenBy, special) {
       const { life } = this[takenBy]
       const { maxAttack, minAttack } = this[givenBy]
-      const attackValue = this.attackValue(maxAttack, minAttack, special)
-      this[takenBy].life -= life >= attackValue ? attackValue : life
+      const attack = this.attackValue(maxAttack, minAttack, special)
+      this[takenBy].life = Math.max(life - attack, 0)
     },
     attackValue(max, min, special) {
       const plus = special ? this.hero.specialAttack : 0
