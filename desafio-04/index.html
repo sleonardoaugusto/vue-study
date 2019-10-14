@@ -49,6 +49,10 @@
     <button v-else="!game.started" class="btn start" @click="startGame">iniciar jogo</button>
   </div>
 
+  <div v-show="hasLog" class="panel log">
+    <span v-for="log in game.log">{{ log }}</span>
+  </div>
+
 </div>
 
 <script src="app.js"></script>

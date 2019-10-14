@@ -66,6 +66,9 @@ new Vue({
   computed: {
     hasResult() {
       return this.monster.life == 0 || this.hero.life == 0
+    },
+    hasLog() {
+      return this.game.log.length
     }
   }
 })
