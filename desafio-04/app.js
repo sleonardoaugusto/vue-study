@@ -58,8 +58,8 @@ new Vue({
       return Math.round(value)
     },
     registerLog(givenBy, takenBy, attack) {
-      const { players } = this.game
       let { logs } = this.game
+      const { players } = this.game
       const text = `${players[givenBy]} atingiu o ${players[takenBy]} com ${attack}.`
       logs.unshift({ text: text, cls: givenBy })
       if (logs.length > 8) logs.pop()
