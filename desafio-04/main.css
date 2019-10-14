@@ -90,10 +90,30 @@ html {
     background-color: #d9d9d9;
 }
 
-/* Log section */
-.log {
+/* Logs section */
+.logs ul {
     display: flex;
     flex-direction: column;
+    list-style: none;
+}
+
+.logs ul li {
+    display: flex;
     justify-content: center;
-    align-items: center;
+    margin: 4px 0;
+    padding: 3px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.monster {
+    background-color: #E57E81;
+    color: #FFF;
+}
+
+.hero {
+    background-color: #768BE5;
+    color: #FFF;
 }

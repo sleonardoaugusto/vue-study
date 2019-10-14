@@ -49,8 +49,12 @@
     <button v-else="!game.started" class="btn start" @click="startGame">iniciar jogo</button>
   </div>
 
-  <div v-show="hasLog" class="panel log">
-    <span v-for="log in game.log">{{ log }}</span>
+  <div v-show="hasLogs" class="panel logs">
+    <ul>
+      <li v-for="log in game.logs" class="log" :class="log.cls">
+        {{ log.text }}
+      </li>
+    </ul>
   </div>
 
 </div>

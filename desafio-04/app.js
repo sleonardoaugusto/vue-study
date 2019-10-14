@@ -3,7 +3,7 @@ new Vue({
   data: {
     game: {
       started: false,
-      log: [],
+      logs: [],
       names: {
         hero: 'Jiraya',
         monster: 'Demogorgon'
@@ -58,17 +58,18 @@ new Vue({
     },
     registerLog(givenBy, takenBy, attack) {
       const { names } = this.game
-      let { log } = this.game
-      log.unshift(`${names[givenBy]} atingou o ${names[takenBy]} com ${attack}.`)
-      if (log.length > 8) log.pop()
+      let { logs } = this.game
+      const text = `${names[givenBy]} atingiu o ${names[takenBy]} com ${attack}.`
+      logs.unshift({ text: text, cls: givenBy })
+      if (logs.length > 8) logs.pop()
     }
   },
   computed: {
     hasResult() {
       return this.monster.life == 0 || this.hero.life == 0
     },
-    hasLog() {
-      return this.game.log.length
+    hasLogs() {
+      return this.game.logs.length
     }
   }
 })
