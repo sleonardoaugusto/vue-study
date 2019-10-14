@@ -57,10 +57,11 @@ new Vue({
       const value = Math.random() * (max - min) + min
       return Math.round(value)
     },
-
     registerLog(givenBy, takenBy, attack) {
       const { names } = this.game
-      this.game.log.unshift(`${names[givenBy]} atingou o ${names[takenBy]} com ${attack}.`)
+      let { log } = this.game
+      log.unshift(`${names[givenBy]} atingou o ${names[takenBy]} com ${attack}.`)
+      if (log.length > 8) log.pop()
     }
   },
   computed: {
