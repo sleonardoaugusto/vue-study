@@ -2,7 +2,12 @@ new Vue({
   el: '#app',
   data: {
     game: {
-      started: false
+      started: false,
+      log: [],
+      names: {
+        hero: 'Jiraya',
+        monster: 'Demogorgon'
+      }
     },
     hero: {
       name: 'Jiraya',
@@ -36,11 +41,13 @@ new Vue({
       this.hero.life = Math.min(life + heal, 100)
       this.hurt('monster', 'hero', false)
     },
-    hurt(givenBy, takenBy, special) {
+    hurt(givenBy, takenBy, special
+    ) {
       const { life } = this[takenBy]
       const { maxAttack, minAttack } = this[givenBy]
       const attack = this.attackValue(maxAttack, minAttack, special)
       this[takenBy].life = Math.max(life - attack, 0)
+      this.registerLog(givenBy, takenBy, attack, givenBy)
     },
     attackValue(max, min, special) {
       const plus = special ? this.hero.specialAttack : 0
@@ -49,6 +56,11 @@ new Vue({
     getRandom(min, max) {
       const value = Math.random() * (max - min) + min
       return Math.round(value)
+    },
+
+    registerLog(givenBy, takenBy, attack) {
+      const { names } = this.game
+      this.game.log.unshift(`${names[givenBy]} atingou o ${names[takenBy]} com ${attack}.`)
     }
   },
   computed: {
