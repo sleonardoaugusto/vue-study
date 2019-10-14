@@ -4,7 +4,7 @@ new Vue({
     game: {
       started: false,
       logs: [],
-      names: {
+      players: {
         hero: 'Jiraya',
         monster: 'Demogorgon'
       }
@@ -58,9 +58,9 @@ new Vue({
       return Math.round(value)
     },
     registerLog(givenBy, takenBy, attack) {
-      const { names } = this.game
+      const { players } = this.game
       let { logs } = this.game
-      const text = `${names[givenBy]} atingiu o ${names[takenBy]} com ${attack}.`
+      const text = `${players[givenBy]} atingiu o ${players[takenBy]} com ${attack}.`
       logs.unshift({ text: text, cls: givenBy })
       if (logs.length > 8) logs.pop()
     }
