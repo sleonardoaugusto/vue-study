@@ -41,8 +41,7 @@ new Vue({
       this.hero.life = Math.min(life + heal, 100)
       this.hurt('monster', 'hero', false)
     },
-    hurt(givenBy, takenBy, special
-    ) {
+    hurt(givenBy, takenBy, special) {
       const { life } = this[takenBy]
       const { maxAttack, minAttack } = this[givenBy]
       const attack = this.attackValue(maxAttack, minAttack, special)
