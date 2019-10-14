@@ -30,6 +30,7 @@ new Vue({
       this.hero.life = 100
       this.monster.life = 100
       this.game.started = true
+      this.game.logs = []
     },
     attack(special) {
       this.hurt('hero', 'monster', special)
@@ -70,6 +71,15 @@ new Vue({
     },
     hasLogs() {
       return this.game.logs.length
+    },
+    btnLabel() {
+      return this.hasResult ? 'sair' : 'desistir'
+    },
+    heroIsDead() {
+      return this.hero.life == 0
+    },
+    monsterIsDead() {
+      return this.monster.life == 0
     }
   }
 })

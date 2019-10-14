@@ -36,16 +36,17 @@
   </div>
 
   <div v-show="hasResult" class="panel result">
-    <span v-show="monster.life == 0">Você ganhou!</span>
-    <span v-show="hero.life == 0">Você perdeu!</span>
+    <span v-if="heroIsDead && monsterIsDead">Empate!</span>
+    <span v-else-if="monsterIsDead">Você ganhou!</span>
+    <span v-else="heroIsDead">Você perdeu!</span>
   </div>
 
   <div class="panel actions">
     <template v-if="game.started">
-      <button class="btn attack" @click="attack(false)">ataque</button>
-      <button class="btn special-atack" @click="attack(true)">ataque especial</button>
-      <button class="btn heal" @click="heal">curar</button>
-      <button class="btn surrender" @click="game.started = false">desistir</button>
+      <button v-show="!hasResult" class="btn attack" @click="attack(false)">ataque</button>
+      <button v-show="!hasResult" class="btn special-atack" @click="attack(true)">ataque especial</button>
+      <button v-show="!hasResult" class="btn heal" @click="heal">curar</button>
+      <button class="btn surrender" @click="game.started = false">{{ btnLabel }}</button>
     </template>
     <button v-else="!game.started" class="btn start" @click="startGame">iniciar jogo</button>
   </div>
