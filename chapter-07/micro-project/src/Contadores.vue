@@ -6,8 +6,14 @@
 </template>
 
 <script>
+import Contador from '@/components/Contador'
+
 export default {
-  name: 'Contadores'
+  name: 'Contadores',
+  components: {
+    'contador': Contador
+  }
+
 }
 </script>
 
