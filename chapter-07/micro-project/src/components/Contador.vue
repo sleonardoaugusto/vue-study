@@ -1,9 +1,9 @@
 <template>
-  <div id="contador">
+  <section id="contador">
     <span class="small">{{ contador }}</span>
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -35,7 +35,12 @@ export default {
   #contador button {
     height: 30px;
     width: 30px;
+    margin: 5px;
     border-radius: 15px;
+    background-color: #E57E81;
+    border-style: none;
+    cursor: pointer;
+    outline: none;
   }
 
 
