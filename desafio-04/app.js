@@ -47,7 +47,7 @@ new Vue({
       const { maxAttack, minAttack } = this[givenBy]
       const attack = this.attackValue(maxAttack, minAttack, special)
       this[takenBy].life = Math.max(life - attack, 0)
-      this.registerLog(givenBy, takenBy, attack, givenBy)
+      this.registerLog(givenBy, takenBy, attack)
     },
     attackValue(max, min, special) {
       const plus = special ? this.hero.specialAttack : 0
