@@ -1,6 +1,7 @@
 <template>
   <div class="citacao">
-
+    <p>citacao component</p>
+    <slot></slot>
   </div>
 </template>
 
