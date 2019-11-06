@@ -25,7 +25,8 @@ export default {
   }),
   methods: {
     add(e) {
-      this.cards.push({ title: e })
+      if (e.length)
+        this.cards.push({ title: e })
     }
   }
 }
