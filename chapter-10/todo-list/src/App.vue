@@ -1,24 +1,31 @@
 <template>
   <div id="app">
-    <h1>App</h1>
-    <app-input @submit="add"/>
+    <div class="wrap column">
+      <h1>App</h1>
+      <app-input @submit="add"/>
+    </div>
+    <div class="wrap">
+      <app-card v-for="(c, i) in cards" :key="i" :data="c"/>
+    </div>
   </div>
 </template>
 
 <script>
 import Input from '@/components/Input'
+import Card from '@/components/Card'
 
 export default {
   name: 'app',
   components: {
-    'app-input': Input
+    'app-input': Input,
+    'app-card': Card
   },
   data: () => ({
-    card: []
+    cards: []
   }),
   methods: {
     add(e) {
-      this.card.push({ title: e })
+      this.cards.push({ title: e })
     }
   }
 }
@@ -36,7 +43,21 @@ export default {
 
   body {
     display: flex;
+    flex-flow: wrap;
     justify-content: center;
+    max-width: 100%;
     background-color: #FEF9EF;
   }
+
+  .wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrap.column {
+    flex-direction: column;
+  }
+
+
 </style>
