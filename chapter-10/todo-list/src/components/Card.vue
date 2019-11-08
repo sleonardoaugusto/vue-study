@@ -1,6 +1,7 @@
 <template>
-  <div class="wrap">
-    <div class="card">
+  <div class="wrap row">
+    <div class="card wrap column">
+      <span @click="close" class="close">x</span>
       <p>{{ data.title }}</p>
     </div>
   </div>
@@ -14,6 +15,11 @@ export default {
       type: Object,
       required: true,
       default: () => ({})
+    }
+  },
+  methods: {
+    close() {
+      this.$emit('closeCard')
     }
   }
 }
@@ -31,6 +37,11 @@ export default {
     padding: 10px 25px;
     margin: 25px;
     max-width: 150px;
+  }
+
+  .close {
+    align-self: flex-end;
+    cursor: pointer;
   }
 
   p {

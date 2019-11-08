@@ -5,7 +5,7 @@
       <app-input @submit="add"/>
     </div>
     <div class="wrap">
-      <app-card v-for="(c, i) in cards" :key="i" :data="c"/>
+      <app-card v-for="(c, i) in cards" :key="i" :data="c" @closeCard="close(i)"/>
     </div>
   </div>
 </template>
@@ -27,6 +27,9 @@ export default {
     add(e) {
       if (e.length)
         this.cards.push({ title: e })
+    },
+    close(i) {
+      this.cards.splice(i, 1)
     }
   }
 }
