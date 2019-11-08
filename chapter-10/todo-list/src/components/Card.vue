@@ -10,9 +10,11 @@
 export default {
   name: 'Card',
   props: {
-    data: {},
-    type: Object,
-    default: () => ({})
+    data: {
+      type: Object,
+      required: true,
+      default: () => ({})
+    }
   }
 }
 </script>
