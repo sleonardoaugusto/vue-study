@@ -1,5 +1,5 @@
 <template>
-  <div class="card wrap column">
+  <div :key="key" @click="doneOrUndone" class="card wrap column" :class="card.done ? 'done' : 'pending'">
     <span @click="close" class="close">x</span>
     <div class="content">
       <slot></slot>
@@ -10,9 +10,20 @@
 <script>
 export default {
   name: 'Card',
+  data: () => ({
+    card: {},
+    key: ''
+  }),
   methods: {
     close() {
       this.$emit('closeCard')
+    },
+    doneOrUndone() {
+      this.card.done = !this.card.done
+      this.refresh()
+    },
+    refresh() {
+      this.key = Math.random()
     }
   }
 }
@@ -23,12 +34,21 @@ export default {
     display: flex;
     justify-content: center;
     margin: 20px;
-    background-color: #FFCB77;
-    border: 2px solid #FFCB77;
     color: #FFF;
     font-weight: 600;
     border-radius: 10px;
     max-width: 150px;
+    cursor: pointer;
+  }
+
+  .card.pending {
+    background-color: #FFCB77;
+    border: 2px solid #FFCB77;
+  }
+
+  .card.done {
+    background-color: #49b057 !important;
+    border: 2px solid #49b057 !important;
   }
 
   .card .close {
@@ -49,4 +69,5 @@ export default {
   .card .content {
     padding: 5px 10px;
   }
+
 </style>
