@@ -2,7 +2,7 @@
   <div class="card wrap column">
     <span @click="close" class="close">x</span>
     <div class="content">
-      <p>{{ data.title }}</p>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -10,13 +10,6 @@
 <script>
 export default {
   name: 'Card',
-  props: {
-    data: {
-      type: Object,
-      required: true,
-      default: () => ({})
-    }
-  },
   methods: {
     close() {
       this.$emit('closeCard')
@@ -50,6 +43,7 @@ export default {
   .card p {
     max-width: 100%;
     word-break: break-all;
+    margin: .6rem;
   }
 
   .card .content {

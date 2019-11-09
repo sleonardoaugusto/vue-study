@@ -5,7 +5,9 @@
       <app-input @submit="add"/>
     </div>
     <div class="wrap">
-      <app-card v-for="(c, i) in cards" :key="i" :data="c" @closeCard="close(i)"/>
+      <app-card v-for="(c, i) in cards" :key="i" @closeCard="close(i)">
+        <p>{{ c.title }}</p>
+      </app-card>
     </div>
   </div>
 </template>
