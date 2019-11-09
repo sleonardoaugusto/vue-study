@@ -25,8 +25,18 @@ export default {
   }),
   methods: {
     add(e) {
-      if (e.length)
-        this.cards.push({ title: e })
+      const _add = (param) => this.cards.push({ title: param })
+      const validate = (param) => {
+        if (this.cards.length)
+          return !!this.cards.find(c => c.title == param)
+        return false
+      }
+      const composeFunctions = (fA, fB) => (e) => {
+        if (!fA(e))
+          fB(e)
+      }
+      const addIfValidated = composeFunctions(validate, _add)
+      addIfValidated(e)
     },
     close(i) {
       this.cards.splice(i, 1)
