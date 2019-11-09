@@ -38,7 +38,7 @@ export default {
     max-width: 150px;
   }
 
-  .close {
+  .card .close {
     padding: 5px 5px 0;
     height: 20px;
     width: 20px;
@@ -47,12 +47,12 @@ export default {
     font-size: 1.2rem;
   }
 
-  p {
+  .card p {
     max-width: 100%;
     word-break: break-all;
   }
 
-  .content {
+  .card .content {
     padding: 5px 10px;
   }
 </style>
