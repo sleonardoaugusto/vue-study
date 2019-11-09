@@ -29,12 +29,12 @@ export default {
     add(e) {
       const _add = (param) => this.cards.push({ title: param })
       const validate = (param) => {
-        if (this.cards.length)
-          return !!this.cards.find(c => c.title == param)
+        if (e.length)
+          return !this.cards.find(c => c.title == param)
         return false
       }
       const composeFunctions = (fA, fB) => (e) => {
-        if (!fA(e))
+        if (fA(e))
           fB(e)
       }
       const addIfValidated = composeFunctions(validate, _add)
