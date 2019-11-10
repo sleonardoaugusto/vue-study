@@ -44,7 +44,8 @@ export default {
     position: absolute;
     border: 1px solid #FE6D73;
     background-color: #FE6D73;
-    border-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     font-weight: 600;
     color: #FFF;
     cursor: pointer;
