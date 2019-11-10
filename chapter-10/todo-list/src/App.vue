@@ -28,19 +28,10 @@ export default {
     progress: 0
   }),
   methods: {
-    add(value) {
-      const _add = (param) => this.cards.push({ title: param, pending: true })
-      const validate = (param) => {
-        if (value.length)
-          return !this.cards.find(c => c.title == param)
-        return false
-      }
-      const composeFunctions = (fA, fB) => (value) => {
-        if (fA(value))
-          fB(value)
-      }
-      const addIfValidated = composeFunctions(validate, _add)
-      addIfValidated(value)
+    add(task) {
+      const reallyNew = !this.cards.find(c => c.title == task)
+      if (reallyNew)
+        this.cards.push({ title: task, pending: true })
     },
     close(i) {
       this.cards.splice(i, 1)

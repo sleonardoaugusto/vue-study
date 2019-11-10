@@ -13,7 +13,8 @@ export default {
   }),
   methods: {
     add() {
-      this.$emit('taskAdded', this.value)
+      if (this.value.length)
+        this.$emit('taskAdded', this.value)
     },
     setValue(e) {
       this.value = e.target.value
