@@ -1,7 +1,7 @@
 <template>
   <div id="input">
-    <input type="text" @input="setValue" @keypress.enter="submit">
-    <span class="plus" @click="submit">+</span>
+    <input type="text" @input="setValue" @keypress.enter="add">
+    <span class="plus" @click="add">+</span>
   </div>
 </template>
 
@@ -12,8 +12,8 @@ export default {
     value: ''
   }),
   methods: {
-    submit() {
-      this.$emit('submit', this.value)
+    add() {
+      this.$emit('taskAdded', this.value)
     },
     setValue(e) {
       this.value = e.target.value
