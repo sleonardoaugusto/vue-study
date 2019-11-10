@@ -4,8 +4,11 @@
       <h1>App</h1>
       <app-input @submit="add"/>
     </div>
+    <div class="progressbar">
+      <div class="progress" :style="{width: progressPercentage + '%'}"></div>
+    </div>
     <div class="wrap">
-      <app-card v-for="(c, i) in cards" :key="i" @closeCard="close(i)">
+      <app-card v-for="(c, i) in cards" :key="i" @closeCard="close(i)" @doneOrUndone="computeProgress">
         <p>{{ c.title }}</p>
       </app-card>
     </div>
@@ -23,7 +26,8 @@ export default {
     'app-card': Card
   },
   data: () => ({
-    cards: []
+    cards: [],
+    progress: 0
   }),
   methods: {
     add(e) {
@@ -42,6 +46,14 @@ export default {
     },
     close(i) {
       this.cards.splice(i, 1)
+    },
+    computeProgress(e) {
+      e ? this.progress++ : this.progress--
+    }
+  },
+  computed: {
+    progressPercentage() {
+      return (this.progress * 100 / this.cards.length) || 0
     }
   }
 }
@@ -75,5 +87,18 @@ export default {
     flex-direction: column;
   }
 
+  .progressbar {
+    height: 1.7rem;
+    border: 2px solid #2c3e50;
+    border-radius: 10px;
+    width: 560px;
+    margin: 15px;
+  }
+
+  .progress {
+    height: 100%;
+    background-color: #49b057;
+    border-radius: 7px;
+  }
 
 </style>
