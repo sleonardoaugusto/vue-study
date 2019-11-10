@@ -8,9 +8,7 @@
       <div class="progress" :style="{width: progressPercentage + '%'}"></div>
     </div>
     <div class="wrap">
-      <app-card v-for="(c, i) in cards" :key="i" @closeCard="close(i)" @doneOrUndone="computeProgress">
-        <p>{{ c.title }}</p>
-      </app-card>
+      <app-card v-for="(c, i) in cards" :card="c" :key="i" @closeCard="close(i)" @doneOrUndone="computeProgress"/>
     </div>
   </div>
 </template>
@@ -31,7 +29,7 @@ export default {
   }),
   methods: {
     add(e) {
-      const _add = (param) => this.cards.push({ title: param })
+      const _add = (param) => this.cards.push({ title: param, pending: true })
       const validate = (param) => {
         if (e.length)
           return !this.cards.find(c => c.title == param)
@@ -48,7 +46,7 @@ export default {
       this.cards.splice(i, 1)
     },
     computeProgress(e) {
-      e ? this.progress++ : this.progress--
+      !e ? this.progress++ : this.progress--
     }
   },
   computed: {

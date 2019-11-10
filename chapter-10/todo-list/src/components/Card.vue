@@ -1,8 +1,8 @@
 <template>
-  <div :key="key" @click="doneOrUndone" class="card wrap column" :class="card.status ? 'done' : 'pending'">
+  <div :key="key" @click="doneOrUndone" class="card wrap column" :class="stateClass">
     <span @click="close" class="close">x</span>
     <div class="content">
-      <slot></slot>
+      <p>{{ card.title }}</p>
     </div>
   </div>
 </template>
@@ -10,6 +10,12 @@
 <script>
 export default {
   name: 'Card',
+  props: {
+    card: {
+      type: Object,
+      required: true
+    }
+  },
   data: () => ({
     card: {},
     key: ''
@@ -19,12 +25,20 @@ export default {
       this.$emit('closeCard')
     },
     doneOrUndone() {
-      this.card.status = !this.card.status
-      this.$emit('doneOrUndone', this.card.status)
+      this.card.pending = !this.card.pending
+      this.$emit('doneOrUndone', this.card.pending)
       this.refresh()
     },
     refresh() {
       this.key = Math.random()
+    }
+  },
+  computed: {
+    stateClass() {
+      return {
+        pending: this.card.pending,
+        done: !this.card.pending
+      }
     }
   }
 }
@@ -34,22 +48,30 @@ export default {
   .card {
     display: flex;
     justify-content: center;
-    margin: 20px;
-    color: #FFF;
-    font-weight: 600;
-    border-radius: 10px;
-    max-width: 150px;
+    align-items: center;
+    box-sizing: border-box;
+    width: 350px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 2rem;
+    font-weight: 300;
     cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .card.pending {
+  .pending {
     background-color: #FFCB77;
     border: 2px solid #FFCB77;
   }
 
-  .card.done {
+  .done {
     background-color: #49b057 !important;
     border: 2px solid #49b057 !important;
+    text-decoration: line-through;
   }
 
   .card .close {
@@ -59,13 +81,6 @@ export default {
     align-self: flex-end;
     cursor: pointer;
     font-size: 1.2rem;
-    user-select: none;
-  }
-
-  .card p {
-    max-width: 100%;
-    word-break: break-all;
-    margin: .6rem;
     user-select: none;
   }
 
