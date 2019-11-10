@@ -1,5 +1,5 @@
 <template>
-  <div :key="key" @click="doneOrUndone" class="card wrap column" :class="stateClass">
+  <div :key="key" @click="doneOrUndone" class="card" :class="stateClass">
     <span @click="close" class="close">x</span>
     <div class="content">
       <p>{{ card.title }}</p>
@@ -58,9 +58,8 @@ export default {
     font-weight: 300;
     cursor: pointer;
     user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 10px;
+    flex-direction: column;
   }
 
   .pending {
@@ -85,6 +84,7 @@ export default {
   }
 
   .card .content {
+    word-break: break-all;
     padding: 5px 10px;
   }
 

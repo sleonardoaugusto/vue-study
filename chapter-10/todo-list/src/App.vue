@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="wrap column">
     <div class="wrap column">
       <h1>App</h1>
       <app-input @submit="add"/>
@@ -79,6 +79,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .wrap.column {
