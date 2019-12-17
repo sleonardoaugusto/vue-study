@@ -10,7 +10,8 @@
 		<!-- Filtro global que conta o tamanho de cada palavra e adiciona o 
 			valor na string final -->
 		<!-- "Pedro é legal" => "Pedro (5) é (1) legal (5)" -->
-
+		<h2>Exercise 2</h2>
+		<p>{{ word | wordCount}}</p>
 		<!-- Exercício 3 -->
 		<!-- Implementar os exercicios 1 e 2 com propriedade computada -->
 
