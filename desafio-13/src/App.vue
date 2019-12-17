@@ -3,6 +3,8 @@
 		<h1>Filtros & Mixins (Desafio)</h1>
 		<!-- Exercício 1 -->
 		<!-- Construir um filtro local que troca espaços por vírgula -->
+		<h2>Exercise 1</h2>
+		<p>{{ word | spaceToComma}}</p>
 
 		<!-- Exercício 2 -->
 		<!-- Filtro global que conta o tamanho de cada palavra e adiciona o 
@@ -18,8 +20,13 @@
 </template>
 
 <script>
-export default {
+import localMixin from './localMixin'
 
+export default {
+	mixins: [localMixin],
+	data: () => ({
+		word: 'My awesome test phrase'
+	})
 }
 </script>
 
