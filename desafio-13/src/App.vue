@@ -18,8 +18,10 @@
 		<h2>Exercise 3</h2>
 		<p> {{spaceToComma }}</p>
 		<p> {{ wordCount }}</p>
+
 		<!-- Exercício 4 -->
 		<!-- Compartilhe a propriedade computada via mixin -->
+		<!-- ALREADY DONE AT EXERCISE 3 -->
 	</div>
 </template>
 
