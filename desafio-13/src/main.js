@@ -7,6 +7,11 @@ Vue.mixin({
     wordCount(word) {
       return word.split(' ').map(word => `${word} (${word.length})`).join(' ')
     }
+  },
+  computed: {
+    wordCount() {
+      return this.word.split(' ').map(word => `${word} (${word.length})`).join(' ')
+    }
   }
 })
 

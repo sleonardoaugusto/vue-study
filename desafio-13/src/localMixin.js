@@ -3,5 +3,10 @@ export default {
 		spaceToComma(word) {
 			return word.split(' ').join('-')
 		}
+  },
+	computed: {
+		spaceToComma() {
+			return this.word.split(' ').join('-')
+		}
   }
 }
